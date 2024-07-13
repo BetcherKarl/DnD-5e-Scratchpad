@@ -3,7 +3,6 @@ from numpy.random import randint
 from typing import List, Union, Deque
 from collections import deque
 
-
 class Die():
     def __init__(self, sides: int):
         self._sides = sides
