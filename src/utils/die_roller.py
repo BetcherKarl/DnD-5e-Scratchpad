@@ -1,4 +1,4 @@
-from src.utils.die import Die
+from .die import Die
 from src.constants import evaluate_expression
 
 from typing import Dict

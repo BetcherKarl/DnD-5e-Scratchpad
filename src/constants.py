@@ -1,3 +1,5 @@
+from typing import Dict, Union
+from src.utils.die import Die
 import re
 
 
@@ -52,6 +54,32 @@ def evaluate_expression(expression):
     postfix = infix_to_postfix(tokens)
     result = evaluate_postfix(postfix)
     return result
+
+
+def roll_stats():
+    die = Die(6)
+    stats = []
+    for _ in range(7):
+        stats.append(sum(sorted(die.roll(rolls=4, summed=False))[1:]))
+
+    stats.sort()
+    stats = stats[1:]
+
+    return stats
+
+def print_distribution(distribution: Dict[Union[int, float], Union[int, float]], step_size: Union[float, int] = 1):
+    min_val = min(distribution.keys())
+    max_val = max(distribution.keys())
+
+    for val in range(min_val, max_val + 1):
+        print(val, end='|')
+        if val in distribution.keys():
+            i = step_size
+            while i < distribution[val]:
+                print('-', end='')
+                i += step_size
+
+        print()
 
 proficiency_bonus = [None,
                      2, 2, 2, 2,  # 1st-4th

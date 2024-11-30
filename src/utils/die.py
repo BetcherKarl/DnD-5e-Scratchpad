@@ -2,6 +2,7 @@ from numpy.random import randint
 
 from typing import List, Union, Deque
 from collections import deque
+from functools import lru_cache
 
 class Die():
     def __init__(self, sides: int):
