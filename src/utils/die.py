@@ -30,8 +30,8 @@ class Die():
 
         :return: (int) sum total of all rolls OR
                  (List[int]) all rolls"""
-        results = randint(1, self.sides+1, rolls, int)
-        if summed is True:
+        results = randint(1, self.sides+1, rolls)
+        if summed:
             results = sum(results)
         self._history.append(results)
         return results

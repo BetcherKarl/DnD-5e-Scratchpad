@@ -8,7 +8,7 @@ import logging
 
 # logging.basicConfig(level=logging.DEBUG)
 
-@lru_cache(maxsize=100, typed=False)
+@lru_cache(maxsize=20, typed=False)
 def prob(total: Union[int, type(None)], num_rolls: int, faces: int) -> Union[float, List[float]]:
     """Calculates the probability of rolling a given total when rolling (num_rolls)d(faces) Ex. 2d6, 3d12"""
     logging.info(f" src.utils.probability.prob: Calculating p({total}: {num_rolls}d{faces})...")

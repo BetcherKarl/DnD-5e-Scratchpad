@@ -36,9 +36,15 @@ def main():
              "intelligence": 8,
              "wisdom": 14,
              "charisma": 13}
-    creature = Creature(stuff)
+    creature = Creature(stuff, level=1)
     print(creature._stats)
+    rolls = []
+    print(creature.proficiency_bonus)
+    for i in range(100):
+        rolls.append(creature.roll_skill("Acrobatics"))
     logging.info(f"Successfully Created Creature")
+    print(min(rolls))
+    print(max(rolls))
 
     print("\nEXPERIMENTAL RESULTS")
     # test data
