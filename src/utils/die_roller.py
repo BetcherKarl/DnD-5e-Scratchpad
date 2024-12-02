@@ -1,14 +1,23 @@
 from .die import Die
 from src.constants import evaluate_expression
 
-from typing import Dict
+from typing import Dict, Union
 import re
+
+import logging
 
 
 class Die_Roller:
-    def __init__(self):
+    def __init__(self, dice: Union[type(None), Dict[str,Die]]=None):
         self._dice: Dict[str, Die]
-        self._dice = {}
+        if dice is None:
+            self._dice = {}
+        elif isinstance(dice, dict):
+            self._dice = dice
+        else:
+            logging.error(f"Invalid type for param dice: expected NoneType or Dict[str, Die], got {type(dice)} instead")
+            logging.info("Exiting...")
+            exit()
 
     def roll(self, dice:str):
         command = dice
